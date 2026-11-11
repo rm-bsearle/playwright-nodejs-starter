@@ -8,4 +8,6 @@ test('Recommended built-in locators', async ({ page }) => {
     await firstName.clear();
 
     await page.getByLabel('First Name').fill('Andrejs');
+
+    await page.getByRole('button', { name: 'Register', exact: true }).click();
 });
