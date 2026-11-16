@@ -22,3 +22,16 @@ test('Download a Single file and assert', async ({ page }) => {
     console.log(fileSizeInBytes);
     expect(fileSizeInBytes).toBeLessThan(20_000);
 });
+
+test('Upload', async ({ page }) => {
+    await page.goto('/loans.html');
+
+    const uploadInput = page.locator('input[type="file"]');
+
+    await uploadInput.setInputFiles(['download/dummy.pdf']);
+
+    // clear
+    await uploadInput.setInputFiles([]);
+
+    //submit
+});
