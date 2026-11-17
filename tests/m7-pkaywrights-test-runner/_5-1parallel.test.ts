@@ -1,6 +1,6 @@
 import { test } from '@playwright/test';
 
-test.describe.configure({ mode: 'parallel' });
+test.describe.configure({ mode: 'serial' });
 
 test('Test 1', async () => {
     console.log('Test 1');
