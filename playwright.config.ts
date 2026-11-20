@@ -1,4 +1,4 @@
-import { defineConfig } from '@playwright/test';
+import { defineConfig, devices } from '@playwright/test';
 
 export default defineConfig({
   // test suite level
@@ -25,5 +25,16 @@ export default defineConfig({
     command: 'npm start',
     url: 'http://localhost:3000/',
     reuseExistingServer: true,
-  }
+  },
+
+  projects: [
+    {
+      name: 'chromium',
+      use: { ...devices['Desktop Chrome'] }
+    },
+    {
+      name: 'firefox',
+      use: { ...devices['Desktop Firefox'] }
+    },
+  ]
 });
