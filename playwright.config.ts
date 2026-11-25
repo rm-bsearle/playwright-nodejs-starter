@@ -56,6 +56,26 @@ export default defineConfig({
       use: {
         // ..
       }
-    }
+    },
+
+    // global setup
+    {
+      name: 'setup-cleanup-demo',
+      testMatch: '_4global_config.test.ts',
+      dependencies: ['setup', 'admin-auth', 'populate-db'],
+    },
+
+    {
+      name: 'setup',
+      testMatch: '**/global.setup.ts'
+    },
+    {
+      name: 'admin-auth',
+      testMatch: '**/admin-auth.setup.ts'
+    },
+    {
+      name: 'populate-db',
+      testMatch: '**/populate-db.setup.ts'
+    },
   ]
 });
