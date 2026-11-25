@@ -36,5 +36,26 @@ export default defineConfig({
       name: 'firefox',
       use: { ...devices['Desktop Firefox'] }
     },
+    // tests limited to a particular directory
+    {
+      name: 'Mobile Safari',
+      use: { ...devices['iPhone 12'] },
+      testDir: './tests/mobile',
+    },
+    // by purpose, filtering test to a regex
+    {
+      name: 'Smoke',
+      testMatch: /.*smoke.test.ts/,
+      retries: 0,
+    },
+    // Opposite of testMatch, filtering out tests by regex
+    {
+      name: 'Regular',
+      testIgnore: /.*smoke.test.ts/,
+      retries: 2,
+      use: {
+        // ..
+      }
+    }
   ]
 });
