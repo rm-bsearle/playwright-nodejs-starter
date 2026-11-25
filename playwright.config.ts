@@ -66,8 +66,14 @@ export default defineConfig({
     },
 
     {
+      name: 'cleanup',
+      testMatch: '**/global.teardown.ts'
+    },
+
+    {
       name: 'setup',
-      testMatch: '**/global.setup.ts'
+      testMatch: '**/global.setup.ts',
+      teardown: 'cleanup',
     },
     {
       name: 'admin-auth',
